@@ -1,0 +1,94 @@
+Blog Objective:
+Create an api for our front end Blog
+
+Requirements:
+    - able to login
+    - create an account
+    
+    Pages
+        -Homepage
+            -Display our published items
+        -ProfilePage
+            -Add Blog
+            -Edit Blog
+            -Delete Blog
+
+Controllers / folder
+    - UserController / file
+        - Create user / endpoint | C
+        - Login User /endpoint   | R
+        - Update user / endpoint | U
+        - Delete user / endpoint | D
+
+        
+    - BlogController / file
+        - Create Blog Item / endpoint | C
+        - Get Blog Item / endpoint    | R
+        - Update Blog Item / endpoint | U
+        - Delete Blog Item / endpoint | D
+
+        - Get Blogs by UserID
+        - Get Blogs by Tags
+        - Get Blogs by Category
+
+
+Services / folder
+    - Context / folder
+        -DataContext / file
+    - UserService / file
+        - Create user / function | C
+        - Login User /function   | R
+        - Update user / function | U
+        - Delete user / function | D
+        - GetUserByUsername / function
+
+    - BlogService / file
+        - Create Blog Item / function | C
+        - Get Blog Item / function    | R
+        - Update Blog Item / function | U
+        - Delete Blog Item / function | D
+
+        - Get Blogs by UserID
+        - Get Blogs by Tags
+        - Get Blogs by Category
+
+    - PasswordService / file
+        - Hash Password
+        - Verify HashPassword
+
+
+Models / folder
+    - UserModel / file
+        int ID
+        string Username
+        string Salt
+        string Hash
+
+    - BlogItemModel(Model for each blog item) / file
+        int ID
+        int UserID
+        string PublishedName
+        string Data
+        string Title
+        string Description
+        string Image
+        string Tags
+        string Categories
+        bool IsPublished
+        bool IsDeleted (soft delete, still in database. Can be recovered)
+
+
+        -DTOs / folder
+            - LoginDTO / file
+                - string Username
+                - string Password
+            - CreateAccountDTO / file
+                - int ID = 0
+                -string Username
+                -string Password
+            - Password DTO / file
+                - string Salt
+                - string Hash
+
+dto stands for data transfer object
+services folder holds logic
